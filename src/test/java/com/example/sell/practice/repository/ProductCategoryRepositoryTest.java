@@ -22,20 +22,20 @@ public class ProductCategoryRepositoryTest {
     private ProductCategoryRepository repository;
 
     @Test
-    public void saveTest(){
+    public void saveOne(){
         ProductCategory productCategory = new ProductCategory("dinner",1);
         ProductCategory result = repository.save(productCategory);
         Assert.assertNotNull(result);
     }
 
     @Test
-    public void findOneTest(){
+    public void findOne(){
         ProductCategory result = repository.findById(1).orElse(null);
         Assert.assertEquals("dinner",result.getCategoryName());
     }
 
     @Test
-    public void findByCategoryTypeInTest(){
+    public void findByCategoryTypeIn(){
         List<Integer> list = Arrays.asList(1,2);
         List<ProductCategory> result = repository.findByCategoryTypeIn(list);
         Assert.assertEquals(2,result.size());
